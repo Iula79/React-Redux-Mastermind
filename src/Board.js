@@ -43,6 +43,11 @@ class Board extends Component{
         this.setState({currentColor:color})
     }
 
+    changeRow(row){
+        console.log(row)
+        this.setState({currentRow:row+1})
+    }
+
     render() {
         let boardLength = this.state.board.length
 
@@ -53,13 +58,13 @@ class Board extends Component{
         }
         let boardArray = []
         for (var i=1; i<= boardLength; i++){
-            boardArray.push(<Row row={i} key={i} currentrow={this.state.currentRow} currentcolor={this.state.currentColor} />)
+            boardArray.push(<Row row={i} key={i} currentrow={this.state.currentRow} currentcolor={this.state.currentColor} changeRow={this.changeRow}/>)
         }
 
         return (
             <div >
             <div className="choiceDiv" >{choiceArray}</div>
-            <div currentcolor={this.state.currentColor}> {boardArray}</div>
+            <div> {boardArray}</div>
             </div>
         );
     }

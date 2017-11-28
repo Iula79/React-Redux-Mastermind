@@ -4,13 +4,14 @@ import Cell from './Cell'
 class Row extends Component{
     
     state = {
-        updaterow: this.props.updaterow,
-        newrow : this.props.currentrow
+        newrow : this.props.currentrow,
+        changerow: this.props.changeRow
 
     }
    
    render(){
     let currentcolor = this.props.currentcolor
+    
     let cellArray = []
         for (var i=1; i<= 4; i++){
                 cellArray.push(<Cell row={i} key={i} currentcolor={currentcolor} />)
@@ -18,7 +19,7 @@ class Row extends Component{
        return(
            <div className="br">
             { cellArray}
-            <button currentrow={this.state.currentRow}>Submit</button>
+            <button onClick={this.state.changerow.bind(this, this.state.newrow)} >Submit</button>
            </div>
        )
    } 
