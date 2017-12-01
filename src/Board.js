@@ -4,6 +4,8 @@ import Row from './Row'
 class Board extends Component{
     constructor(props){
       super(props);
+    
+      this.changeRow = this.changeRow.bind(this)
       
       let colors = ["#40e0d0",
             "#000000",
@@ -43,9 +45,8 @@ class Board extends Component{
         this.setState({currentColor:color})
     }
 
-    changeRow(row){
-        console.log(row)
-        this.setState({currentRow:row+1})
+    changeRow(){
+        this.setState({currentRow:this.state.currentRow +1})
     }
 
     render() {

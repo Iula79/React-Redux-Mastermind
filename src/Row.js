@@ -2,15 +2,10 @@ import React, { Component } from 'react';
 import Cell from './Cell'
 
 class Row extends Component{
-    
-    state = {
-        newrow : this.props.currentrow,
-        changerow: this.props.changeRow
-
-    }
    
    render(){
-    let currentcolor = this.props.currentcolor
+   
+    const {currentrow, currentcolor, changeRow,row} = this.props
     
     let cellArray = []
         for (var i=1; i<= 4; i++){
@@ -19,7 +14,10 @@ class Row extends Component{
        return(
            <div className="br">
             { cellArray}
-            <button onClick={this.state.changerow.bind(this, this.state.newrow)} >Submit</button>
+            {/* react if statement */}
+            { row == currentrow &&
+            <button onClick={()=>changeRow()} >Submit</button>
+            }
            </div>
        )
    } 
