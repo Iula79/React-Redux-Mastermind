@@ -37,10 +37,19 @@ class Board extends Component{
           currentRow: 1,
           answer: answer,
           colors: colors,
+          guess:[],
+          guessCount:0
       }  
 
     }
-
+    // compareAnswerToGuess(guess){
+    //     var count = 0
+    //     for(var i=0; i<guess.length; i++){
+    //         if(guess[i]==this.state.answer[i]){
+    //             count ++
+    //         }
+    //     }
+    // }
     changeColor(color){
         this.setState({currentColor:color})
     }
