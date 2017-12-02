@@ -38,7 +38,6 @@ class Board extends Component{
           currentRow: 1,
           answer: answer,
           colors: colors,
-          guess:[],
           guessCount:0
       }  
     }
@@ -69,7 +68,7 @@ class Board extends Component{
         }
         let boardArray = []
         for (var i=1; i<= boardLength; i++){
-            boardArray.push(<Row row={i} key={i} currentrow={this.state.currentRow} currentcolor={this.state.currentColor} changeRow={this.changeRow}/>)
+            boardArray.push(<Row row={i} key={i} currentrow={this.state.currentRow} answer={this.state.answer} currentcolor={this.state.currentColor} changeRow={this.changeRow}/>)
         }
 
         return (

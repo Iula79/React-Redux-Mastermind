@@ -13,6 +13,7 @@ class Cell extends Component {
             if (color !== "gray" && this.state.clicked === false) {
                 this.setState({ clicked: true })
                 this.props.updatecount()
+                this.props.addcolor(color, this.props.cell-1)
             }
         }
     }
