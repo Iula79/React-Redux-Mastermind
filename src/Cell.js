@@ -10,10 +10,12 @@ class Cell extends Component {
         console.log(color)
         if (this.props.row === this.props.currentrow) {
             this.setState({ newcolor: color })
-            if (color !== "gray" && this.state.clicked === false) {
-                this.setState({ clicked: true })
-                this.props.updatecount()
-                this.props.addcolor(color, this.props.cell-1)
+            if (color !== "gray") {
+                this.props.addcolor(color, this.props.cell - 1)
+                if (this.state.clicked === false) {
+                    this.setState({ clicked: true })
+                    this.props.updatecount();
+                }
             }
         }
     }
