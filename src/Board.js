@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Row from './Row'
 
 class Board extends Component{
+    
     constructor(props){
       super(props);
     
@@ -40,7 +41,6 @@ class Board extends Component{
           guess:[],
           guessCount:0
       }  
-
     }
     // compareAnswerToGuess(guess){
     //     var count = 0
@@ -56,6 +56,7 @@ class Board extends Component{
 
     changeRow(){
         this.setState({currentRow:this.state.currentRow +1})
+        this.setState({guessCount:this.state.guessCount +1})
     }
 
     render() {

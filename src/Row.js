@@ -19,14 +19,14 @@ class Row extends Component{
      
     let cellArray = []
         for (var i=1; i<= 4; i++){
-                cellArray.push(<Cell key={i} currentcolor={currentcolor} updatecount={this.updateCount} count={this.state.count}/>)
+                cellArray.push(<Cell key={i} currentcolor={currentcolor} row={row} currentrow={currentrow} updatecount={this.updateCount} count={this.state.count}/>)
             }
-            
+
        return(
            <div className="br">
             { cellArray}
             {/* react if statement */}
-            { row === currentrow && this.state.count == 4 &&
+            { row === currentrow && this.state.count === 4 &&
             <button onClick={()=>changeRow()} >Submit</button>
             }
            </div>
