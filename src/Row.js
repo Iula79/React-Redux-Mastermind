@@ -16,8 +16,6 @@ class Row extends Component {
         count: 0,
         guess: [],
         won: false,
-        // exactCount:0,
-        // nearCount:0,
         pegArray:["black", "black", "black", "black"]
     }
 
@@ -64,9 +62,12 @@ class Row extends Component {
             this.setState({won:true})
             alert('you won!')
         } else{
-            // this.setState({exactCount:ecount});
-            // this.setState({nearCount:ncount});
-        }
+            let myArray = this.state.pegArray.slice()
+            for(var i=0; i<myArray.length; i++){
+                myArray[i]="red";
+            }
+            this.setState({pegArray:myArray});
+            }        
     }
 
     render() {
