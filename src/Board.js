@@ -65,7 +65,7 @@ class Board extends Component {
         }
 
         return (
-            <div >
+            <div className="container">
                 <div className="choiceDiv" >{choiceArray}</div>
                 <div> {boardArray}</div>
             </div>

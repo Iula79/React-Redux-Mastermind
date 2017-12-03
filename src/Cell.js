@@ -6,8 +6,6 @@ class Cell extends Component {
         clicked: false,
     }
     pressed(color) {
-        // alert("color " + color + " row " + this.props.row)
-        console.log(color)
         if (this.props.row === this.props.currentrow) {
             this.setState({ newcolor: color })
             if (color !== "gray") {

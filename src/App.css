@@ -39,6 +39,7 @@
 .choiceDiv {
   width:280px;
   margin:0 auto;
+  background-color: rgb(169, 96, 96);
 }
 .peg {
   width:20px;
@@ -51,4 +52,7 @@
   height:10px;
   border-radius:25px;
   display:inline-block;
+}
+.board {
+  background-color: brown;
 }

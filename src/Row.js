@@ -26,9 +26,9 @@ class Row extends Component {
     compareAnswerToGuess(guess) {
         var exactCount = 0;
         var nearCount = 0;
-        console.log("guess", guess)
+        // console.log("guess", guess)
         var answer = this.props.answer.slice()
-        console.log("answer", answer)
+        // console.log("answer", answer)
         for (var i = 0; i < guess.length; i++) {
             if (guess[i] === answer[i]) {
                 exactCount++
@@ -45,8 +45,6 @@ class Row extends Component {
                 }
             }
         }
-        console.log(exactCount)
-        console.log(nearCount)
         this.checkWin(exactCount, nearCount)
     }
     updateCount() {
@@ -58,13 +56,18 @@ class Row extends Component {
         this.setState({ guess: myguess })
     }
     checkWin(ecount, ncount){
-        if (ecount + ncount === 4){
+        // console.log(ecount)
+        // console.log(ncount)
+        if (ecount === 4){
             this.setState({won:true})
             alert('you won!')
         } else{
             let myArray = this.state.pegArray.slice()
-            for(var i=0; i<myArray.length; i++){
+            for(var i=0; i<ecount; i++){
                 myArray[i]="red";
+            }
+            for(var j=ecount;j<ecount+ncount;j++ ){
+                myArray[j]="white"
             }
             this.setState({pegArray:myArray});
             }        
@@ -80,10 +83,12 @@ class Row extends Component {
         }
 
         return (
-            <div className="br">
+            <div >
+                <div className="board">
                 {cellArray}
-                {/* react if statement */}
                 <Peg pegArray={this.state.pegArray}/>
+                </div>
+                {/* react if statement */}
                 {row === currentrow && this.state.count === 4 && !this.state.won &&
                     <button onClick={this.submitGuess} >Submit</button>
                 }
