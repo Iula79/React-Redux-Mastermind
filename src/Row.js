@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Cell from './Cell'
+import Cell from './Cell';
+import Peg from './Peg';
 
 class Row extends Component {
     constructor(props) {
@@ -13,7 +14,11 @@ class Row extends Component {
 
     state = {
         count: 0,
-        guess: []
+        guess: [],
+        won: false,
+        // exactCount:0,
+        // nearCount:0,
+        pegArray:["black", "black", "black", "black"]
     }
 
     submitGuess() {
@@ -56,7 +61,11 @@ class Row extends Component {
     }
     checkWin(ecount, ncount){
         if (ecount + ncount === 4){
+            this.setState({won:true})
             alert('you won!')
+        } else{
+            // this.setState({exactCount:ecount});
+            // this.setState({nearCount:ncount});
         }
     }
 
@@ -73,9 +82,11 @@ class Row extends Component {
             <div className="br">
                 {cellArray}
                 {/* react if statement */}
-                {row === currentrow && this.state.count === 4 && 
+                <Peg pegArray={this.state.pegArray}/>
+                {row === currentrow && this.state.count === 4 && !this.state.won &&
                     <button onClick={this.submitGuess} >Submit</button>
                 }
+                
             </div>
         )
     }

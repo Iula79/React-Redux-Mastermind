@@ -40,3 +40,15 @@
   width:280px;
   margin:0 auto;
 }
+.peg {
+  width:20px;
+  height:20px;
+  display:inline-block;
+  background-color: gray;
+}
+.pegpin {
+  width:10px;
+  height:10px;
+  border-radius:25px;
+  display:inline-block;
+}
