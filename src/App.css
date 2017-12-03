@@ -27,6 +27,9 @@
   to { transform: rotate(360deg); }
 }
 
+.container{
+  background-color: lightblue;
+}
 .bc {
   height:50px;
   width:50px;
@@ -34,25 +37,52 @@
   margin:10px;
   display:inline-block;
   border-radius: 25px;
-
 }
+.choiceRow{
+  display:inline-block;
+}
+.choice:hover {
+  filter: brightness(50%);
+}
+
 .choiceDiv {
-  width:280px;
+  width:400px;
   margin:0 auto;
+  display:flex;
+  justify-content: space-between;
   background-color: rgb(169, 96, 96);
 }
 .peg {
-  width:20px;
-  height:20px;
-  display:inline-block;
+  width:28px; 
+  height:33px;
+  margin:10px;
+  align-self: center;
   background-color: gray;
 }
 .pegpin {
   width:10px;
   height:10px;
+  margin:2px;
   border-radius:25px;
-  display:inline-block;
+  display: inline-block;
 }
 .board {
+  width:400px;
+  margin:0 auto;
   background-color: brown;
 }
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+button {
+  
+}
+.empty {
+  width:52px;
+  background-color: lightblue;
+  /* align-self: flex-end; */
+}
+/* .first{
+  
+} */

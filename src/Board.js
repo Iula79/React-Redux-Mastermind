@@ -23,17 +23,6 @@ class Board extends Component {
         }
 
         this.state = {
-            board: function () {
-                var boardarray = []
-                for (var i = 0; i < 10; i++) {
-                    var boardrow = []
-                    for (var j = 0; j < 4; j++) {
-                        boardrow.push(null)
-                    }
-                    boardarray.push(boardrow)
-                }
-                return boardarray
-            }(),
             currentColor: "gray",
             currentRow: 1,
             answer: answer,
@@ -52,22 +41,27 @@ class Board extends Component {
     }
 
     render() {
-        let boardLength = this.state.board.length
 
-        let choiceArray = []
-        for (var j = 0; j < 8; j++) {
-            choiceArray.push(<div className="bc" key={this.state.colors[j]} style={{ background: this.state.colors[j] }} onClick={this.changeColor.bind(this, this.state.colors[j])}></div>)
+        let firstChoiceArray = []
+        for (var j = 0; j < 4; j++) {
+            firstChoiceArray.push(<div className="bc choice" key={this.state.colors[j]} style={{ background: this.state.colors[j] }} onClick={this.changeColor.bind(this, this.state.colors[j])}></div>)
+
+        }
+        let secondChoiceArray = []
+        for (var k = 4; k < 8; k++) {
+            secondChoiceArray.push(<div className="bc choice" key={this.state.colors[k]} style={{ background: this.state.colors[k] }} onClick={this.changeColor.bind(this, this.state.colors[k])}></div>)
 
         }
         let boardArray = []
-        for (var i = 1; i <= boardLength; i++) {
-            boardArray.push(<Row row={i} key={i} currentrow={this.state.currentRow} answer={this.state.answer} currentcolor={this.state.currentColor} changeRow={this.changeRow} />)
+        for (var i = 1; i <= 10; i++) {
+            boardArray.push(<Row row={i} key={i} currentrow={this.state.currentRow} answer={this.state.answer} currentcolor={this.state.currentColor} changeRow={this.changeRow} guessCount={this.state.guessCount}/>)
         }
 
         return (
             <div className="container">
-                <div className="choiceDiv" >{choiceArray}</div>
-                <div> {boardArray}</div>
+                <div className="choiceDiv first" >{firstChoiceArray}<div className="empty"></div></div>
+                <div className="choiceDiv" >{secondChoiceArray}<div className="empty"></div></div>
+                <div className="board"> {boardArray}</div>
             </div>
         );
     }

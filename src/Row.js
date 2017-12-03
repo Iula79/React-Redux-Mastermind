@@ -83,14 +83,16 @@ class Row extends Component {
         }
 
         return (
-            <div >
-                <div className="board">
+            <div className="row">
+                
                 {cellArray}
                 <Peg pegArray={this.state.pegArray}/>
-                </div>
+                
                 {/* react if statement */}
-                {row === currentrow && this.state.count === 4 && !this.state.won &&
+                {row === currentrow && this.state.count === 4 && !this.state.won ?
                     <button onClick={this.submitGuess} >Submit</button>
+                    :
+                    <div className="empty" ></div>
                 }
                 
             </div>
