@@ -59,8 +59,8 @@ class Board extends Component {
 
         return (
             <div className="container">
-                <div className="choiceDiv first" >{firstChoiceArray}<div className="empty"></div></div>
-                <div className="choiceDiv" >{secondChoiceArray}<div className="empty"></div></div>
+                <div className="choiceDiv" ><div className="first">{firstChoiceArray}</div><div className="empty"></div></div>
+                <div className="choiceDiv" ><div className="second">{secondChoiceArray}</div><div className="empty"></div></div>
                 <div className="board"> {boardArray}</div>
             </div>
         );
