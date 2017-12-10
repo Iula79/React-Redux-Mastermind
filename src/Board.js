@@ -43,15 +43,15 @@ class Board extends Component {
     render() {
 
         let firstChoiceArray = []
-        for (var j = 0; j < 4; j++) {
-            firstChoiceArray.push(<div className="bc choice" key={this.state.colors[j]} style={{ background: this.state.colors[j] }} onClick={this.changeColor.bind(this, this.state.colors[j])}></div>)
-
+        for (var k=0; k<2; k++){
+            firstChoiceArray.push(<div className="empty"></div>)
+            for (var j = 0; j < 4; j++) {
+                firstChoiceArray.push(<div className="bc choice" key={this.state.colors[j+k]} style={{ background: this.state.colors[j+k*4] }} onClick={this.changeColor.bind(this, this.state.colors[j+k])}></div>)
+            }
+            firstChoiceArray.push(<div className="empty"></div>)
+            firstChoiceArray.push(<div className="empty"></div>)
         }
-        let secondChoiceArray = []
-        for (var k = 4; k < 8; k++) {
-            secondChoiceArray.push(<div className="bc choice" key={this.state.colors[k]} style={{ background: this.state.colors[k] }} onClick={this.changeColor.bind(this, this.state.colors[k])}></div>)
 
-        }
         let boardArray = []
         for (var i = 1; i <= 10; i++) {
             boardArray.push(<Row row={i} key={i} currentrow={this.state.currentRow} answer={this.state.answer} currentcolor={this.state.currentColor} changeRow={this.changeRow} guessCount={this.state.guessCount}/>)
@@ -59,9 +59,8 @@ class Board extends Component {
 
         return (
             <div className="container">
-                <div className="choiceDiv first" >{firstChoiceArray}<div className="empty"></div></div>
-                <div className="choiceDiv" >{secondChoiceArray}<div className="empty"></div></div>
-                <div className="board"> {boardArray}</div>
+                <div class="grid">  {firstChoiceArray}</div>
+                {boardArray}
             </div>
         );
     }

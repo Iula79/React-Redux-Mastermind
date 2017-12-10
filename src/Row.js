@@ -81,10 +81,11 @@ class Row extends Component {
         for (var i = 1; i <= 4; i++) {
             cellArray.push(<Cell key={i} currentcolor={currentcolor} row={row} currentrow={currentrow} addcolor={this.addColor} updatecount={this.updateCount} count={this.state.count} cell={i} />)
         }
+        // cellArray.push(<Peg pegArray={this.state.pegArray}/>)
 
         return (
-            <div className="row">
-                
+            <div className="row grid">
+                <div className="empty" ></div>
                 {cellArray}
                 <Peg pegArray={this.state.pegArray}/>
                 
