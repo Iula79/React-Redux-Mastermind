@@ -44,12 +44,12 @@ class Board extends Component {
 
         let firstChoiceArray = []
         for (var k=0; k<2; k++){
-            firstChoiceArray.push(<div className="empty"></div>)
+            firstChoiceArray.push(<div className="empty" key={"a"+k}></div>)
             for (var j = 0; j < 4; j++) {
-                firstChoiceArray.push(<div className="bc choice" key={this.state.colors[j+k]} style={{ background: this.state.colors[j+k*4] }} onClick={this.changeColor.bind(this, this.state.colors[j+k])}></div>)
+                firstChoiceArray.push(<div className="choiceBoard" key={this.state.colors[j+k*4]}> <div className="bc choice"  style={{ background: this.state.colors[j+k*4] }} onClick={this.changeColor.bind(this, this.state.colors[j+k*4])}></div></div>)
             }
-            firstChoiceArray.push(<div className="empty"></div>)
-            firstChoiceArray.push(<div className="empty"></div>)
+            firstChoiceArray.push(<div id={"mycell"+k} key={"b"+k} className="choiceBoard"></div>)
+            firstChoiceArray.push(<div key={"c"+k} className="empty"></div>)
         }
 
         let boardArray = []
@@ -59,7 +59,7 @@ class Board extends Component {
 
         return (
             <div className="container">
-                <div class="grid">  {firstChoiceArray}</div>
+                <div className="grid"> {firstChoiceArray}</div>
                 {boardArray}
             </div>
         );

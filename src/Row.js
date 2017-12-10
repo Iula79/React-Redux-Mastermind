@@ -87,11 +87,11 @@ class Row extends Component {
             <div className="row grid">
                 <div className="empty" ></div>
                 {cellArray}
-                <Peg pegArray={this.state.pegArray}/>
+                <div className="choiceBoard"><Peg pegArray={this.state.pegArray}/></div>
                 
                 {/* react if statement */}
                 {row === currentrow && this.state.count === 4 && !this.state.won ?
-                    <button onClick={this.submitGuess} >Submit</button>
+                    <div className="empty"><button onClick={this.submitGuess} >Submit</button></div>
                     :
                     <div className="empty" ></div>
                 }
