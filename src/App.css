@@ -40,9 +40,12 @@
 .bc {
   height:50px;
   width:50px;
-  background-color: gray;
+  background:radial-gradient(circle at 50px 50px, #000, #371c0e);  
   margin:10px;
   border-radius: 25px;
+}
+bc:hover {
+  filter: brightness(120%);
 }
 .choiceBoard {
   display:flex;
@@ -51,7 +54,7 @@
 .peg {
   width:30px;
   height:30px;
-  background-color:gray; 
+  border:1px solid black;
   align-self: center;
   display:grid; 
   border-radius: 5px;
@@ -62,8 +65,38 @@
     margin:2px;
 }
 button{
-  background-color:green;
+  background-color:#9a7439;
+  color:white;
+  height:50%;
+  align-self: center;
+  margin:8px;
 }
 .empty {
+  background-color: lightblue;
+  display:flex;
+}
+.top {
+  background: url('./images/wood-tile.jpeg')center ;
+  
+}
+.choice:hover {
+  filter: brightness(200%)
+}
+.test {
+  height:30px;
+  background: url('./images/wood.jpg') ;
+  width:358px;
+  margin:0 auto;
+}
+.bordertop{
+  border-radius: 20px 20px 0 0;
+}
+.borderbottom{
+  border-radius: 0 0 20px 20px ;
+}
+.trial {
+  width:500px;
+  text-align: center;
+  margin:0 auto;
   background-color: lightblue;
 }
