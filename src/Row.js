@@ -81,16 +81,17 @@ class Row extends Component {
         for (var i = 1; i <= 4; i++) {
             cellArray.push(<Cell key={i} currentcolor={currentcolor} row={row} currentrow={currentrow} addcolor={this.addColor} updatecount={this.updateCount} count={this.state.count} cell={i} />)
         }
+        // cellArray.push(<Peg pegArray={this.state.pegArray}/>)
 
         return (
-            <div className="row">
-                
+            <div className="row grid">
+                <div className="empty" ></div>
                 {cellArray}
-                <Peg pegArray={this.state.pegArray}/>
+                <div className="choiceBoard"><Peg pegArray={this.state.pegArray}/></div>
                 
                 {/* react if statement */}
                 {row === currentrow && this.state.count === 4 && !this.state.won ?
-                    <button onClick={this.submitGuess} >Submit</button>
+                    <div className="empty"><button onClick={this.submitGuess} >Submit</button></div>
                     :
                     <div className="empty" ></div>
                 }

@@ -23,7 +23,7 @@ class Board extends Component {
         }
 
         this.state = {
-            currentColor: "gray",
+            currentColor: "#371c0e",
             currentRow: 1,
             answer: answer,
             colors: colors,
@@ -43,15 +43,15 @@ class Board extends Component {
     render() {
 
         let firstChoiceArray = []
-        for (var j = 0; j < 4; j++) {
-            firstChoiceArray.push(<div className="bc choice" key={this.state.colors[j]} style={{ background: this.state.colors[j] }} onClick={this.changeColor.bind(this, this.state.colors[j])}></div>)
-
+        for (var k=0; k<2; k++){
+            firstChoiceArray.push(<div className="empty" key={"a"+k}></div>)
+            for (var j = 0; j < 4; j++) {
+                firstChoiceArray.push(<div className="choiceBoard top" key={this.state.colors[j+k*4]}> <div className="bc choice"  style={{ background: `radial-gradient(circle at 50px 50px, #000,${ this.state.colors[j+k*4]})` }} onClick={this.changeColor.bind(this, this.state.colors[j+k*4])}></div></div>)
+            }
+            firstChoiceArray.push(<div id={"mycell"+k} key={"b"+k} className="choiceBoard top"></div>)
+            firstChoiceArray.push(<div key={"c"+k} className="empty"></div>)
         }
-        let secondChoiceArray = []
-        for (var k = 4; k < 8; k++) {
-            secondChoiceArray.push(<div className="bc choice" key={this.state.colors[k]} style={{ background: this.state.colors[k] }} onClick={this.changeColor.bind(this, this.state.colors[k])}></div>)
 
-        }
         let boardArray = []
         for (var i = 1; i <= 10; i++) {
             boardArray.push(<Row row={i} key={i} currentrow={this.state.currentRow} answer={this.state.answer} currentcolor={this.state.currentColor} changeRow={this.changeRow} guessCount={this.state.guessCount}/>)
@@ -59,9 +59,10 @@ class Board extends Component {
 
         return (
             <div className="container">
-                <div className="choiceDiv" ><div className="first">{firstChoiceArray}</div><div className="empty"></div></div>
-                <div className="choiceDiv" ><div className="second">{secondChoiceArray}</div><div className="empty"></div></div>
-                <div className="board"> {boardArray}</div>
+
+                <div className="grid"> {firstChoiceArray}</div>
+                {boardArray}
+
             </div>
         );
     }

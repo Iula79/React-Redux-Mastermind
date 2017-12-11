@@ -20,7 +20,9 @@ class Cell extends Component {
     render() {
         let currentcolor = this.props.currentcolor
         return (
-            <div className="bc" style={{ background: this.state.newcolor }} onClick={this.pressed.bind(this, currentcolor)}> </div>
+            <div>
+        <div className="choiceBoard"> <div className="bc" style={{ background: `radial-gradient(circle at 50px 50px, #000, ${this.state.newcolor} )`}} onClick={this.pressed.bind(this, currentcolor)}> </div></div>
+        </div>
         )
     }
 }
