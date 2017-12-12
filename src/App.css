@@ -1,5 +1,6 @@
 html{
   background-color: lightblue;
+  
 }
 .App {
   text-align: center;
@@ -30,6 +31,9 @@ html{
   margin:0 auto;
 
 }
+body{
+  font-family: 'Spectral SC', serif;
+}
 h1 {
   font-family: 'Spectral SC', serif;
   font-weight: bold;
@@ -41,16 +45,16 @@ h1 {
   border:1px solid black;
   
 }
-p {
-  font-family: 'Spectral SC', serif;
+.instructions {
+  
   border:1px solid black;
   margin:20px 40px;
 }
-p:hover {
+.instructions:hover {
   color:white;
   background-color: black;
 }
-p:focus {
+.instructions:focus {
   color:white;
   background-color: black;
 }
@@ -131,21 +135,28 @@ button{
 .modal {
   position: fixed;
   text-align: center;
-  border-radius: 25px;
+  /* border-radius: 25px; */
   z-index: 1;
   padding: 30px;
   left: 25%;
-  top: 25%;
-  width: 50%;
-  height: 50%;
+  right:25%;
+  top: 15%;
+ 
+  height: 60%;
   overflow: auto;
   background-color: white;
-  border:2px solid brown;
+  border:2px solid black;
 }
 .close {
-  position: absolute;
-  top: 10px;
-  right: 25px;
+  position: fixed;
+  right: 25%;
+  top: 15%;
+  width:35px;
+  background-color: white;
+  border:2px solid black;
   font-size: 35px;
   font-weight: bold;
+}
+#computerCodeExample img{
+  max-width: 100%;
 }
