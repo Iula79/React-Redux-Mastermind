@@ -5,10 +5,8 @@ export default function Lightbox(props){
     return(
         <div className="modal">
         <div className="close" onClick={props.hideLightbox}>X</div>
-        <p> Mastermind - Rules of the game.</p>
-        
-        
-              <p> The computer randomly picks a sequence of colors. For example: the secret code is purple, red, orange, yellow: </p>
+        <h2> Mastermind - Rules of the game.</h2>     
+              <p> The computer randomly picks a sequence of colors. For example: the secret code is blue, red, yellow, turquoise: </p>
               <div id ="computerCodeExample">
                 <img src={require('./images/code.png')} alt="code"/>
               </div>

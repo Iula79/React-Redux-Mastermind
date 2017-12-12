@@ -42,7 +42,6 @@ class Board extends Component {
         this.setState({ currentRow: this.state.currentRow + 1, guessCount: this.state.guessCount + 1  })
         console.log(this.state.guessCount)
         if(this.state.guessCount===9){
-            // console.log(this.state.guessCount)
             alert('you lost')
         }
     }
