@@ -7,7 +7,7 @@ class Board extends Component {
         super(props);
 
         this.changeRow = this.changeRow.bind(this)
-        this.setWinToTrue = this.setWinToTrue.bind(this)
+        this.renderEnd = this.renderEnd.bind(this)
 
         let colors = ["#40e0d0",
             "#654321",
@@ -29,7 +29,7 @@ class Board extends Component {
             answer: answer,
             colors: colors,
             guessCount: 0,
-            won: false
+            won: null
         }
     }
 
@@ -42,13 +42,14 @@ class Board extends Component {
         this.setState({ currentRow: this.state.currentRow + 1, guessCount: this.state.guessCount + 1  })
         console.log(this.state.guessCount)
         if(this.state.guessCount===9){
-            alert('you lost')
+            this.renderEnd(false);
         }
     }
 
-    setWinToTrue(){
-        this.setState({won:true})
-        alert('you won!')
+    renderEnd(result){
+        console.log(result)
+        this.setState({won:result})
+        alert(`you ${result}`)
     }
 
     render() {
@@ -65,15 +66,13 @@ class Board extends Component {
 
         let boardArray = []
         for (var i = 1; i <= 10; i++) {
-            boardArray.push(<Row row={i} key={i} won={this.setWinToTrue} currentrow={this.state.currentRow} answer={this.state.answer} currentcolor={this.state.currentColor} changeRow={this.changeRow} guessCount={this.state.guessCount}/>)
+            boardArray.push(<Row row={i} key={i} renderEnd={this.renderEnd} currentrow={this.state.currentRow} answer={this.state.answer} currentcolor={this.state.currentColor} changeRow={this.changeRow} guessCount={this.state.guessCount}/>)
         }
 
         return (
             <div className="container">
-
                 <div className="grid"> {firstChoiceArray}</div>
                 {boardArray}
-
             </div>
         );
     }

@@ -58,7 +58,7 @@ class Row extends Component {
         // console.log(ecount)
         // console.log(ncount)
         if (ecount === 4){
-            this.props.won()
+            this.props.renderEnd(true)
         } else{
             let myArray = this.state.pegArray.slice()
             for(var i=0; i<ecount; i++){
