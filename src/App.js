@@ -10,9 +10,12 @@ class App extends Component {
   }
   showLightbox =()=>{
     this.setState({shown:true})
+    document.getElementsByTagName('body')[0].className+='overflow'
   }
   hideLightbox =()=>{
     this.setState({shown:false})
+    document.getElementsByTagName('body')[0].className=''
+    
   }
   
   render() {
@@ -21,7 +24,7 @@ class App extends Component {
       <div className="heading"><h1>Mastermind Game</h1>
         <p onClick={this.showLightbox}>How to play</p></div>
         {this.state.shown&&
-          <Lightbox />
+          <Lightbox  hideLightbox={this.hideLightbox}/>
           }
         <div className="trial"><div className="test bordertop"></div></div>
         <Board />

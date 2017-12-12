@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default function Lightbox(){
+export default function Lightbox(props){
     console.log("here")
     return(
-        <div id="lightbox"><p> Mastermind - Rules of the game.</p>
+        <div className="modal">
+        <div className="close" onClick={props.hideLightbox}>X</div>
+        <p> Mastermind - Rules of the game.</p>
         
         
               <p> The computer randomly picks a sequence of colors. For example: the secret code is purple, red, orange, yellow: </p>
