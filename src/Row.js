@@ -15,7 +15,6 @@ class Row extends Component {
     state = {
         count: 0,
         guess: [],
-        won: false,
         pegArray:["black", "black", "black", "black"]
     }
 
@@ -59,8 +58,7 @@ class Row extends Component {
         // console.log(ecount)
         // console.log(ncount)
         if (ecount === 4){
-            this.setState({won:true})
-            alert('you won!')
+            this.props.won()
         } else{
             let myArray = this.state.pegArray.slice()
             for(var i=0; i<ecount; i++){
@@ -90,7 +88,7 @@ class Row extends Component {
                 <div className="choiceBoard"><Peg pegArray={this.state.pegArray}/></div>
                 
                 {/* react if statement */}
-                {row === currentrow && this.state.count === 4 && !this.state.won ?
+                {row === currentrow && this.state.count === 4?
                     <div className="empty"><button onClick={this.submitGuess} >Submit</button></div>
                     :
                     <div className="empty" ></div>

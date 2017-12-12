@@ -8,7 +8,7 @@ class Cell extends Component {
     pressed(color) {
         if (this.props.row === this.props.currentrow) {
             this.setState({ newcolor: color })
-            if (color !== "gray") {
+            if (color !== "#371c0e") {
                 this.props.addcolor(color, this.props.cell - 1)
                 if (this.state.clicked === false) {
                     this.setState({ clicked: true })
