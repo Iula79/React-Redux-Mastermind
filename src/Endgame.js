@@ -1,10 +1,24 @@
 import React from 'react';
 
-export default function Endgame(props){
+export default function Endgame(props) {
+    let content = {
+        true: {
+            description: "CONGRATULATIOS, YOU WON!"
+        },
+        false: {
+            description: "SORRY YOU LOST"
+        }
+    }
+    
     return (
-        <div className="modal">
-        <div className="close"></div>
-        You {this.props.won}!
+        <div className="modal column">
+            <h2>{content[props.win].description}</h2>
+            <p>   HERE IS THE SECRET CODE</p>
+            <div className="outer"><div className="answer"> {props.answer.map((color) => {
+               return <div className="bc" key={color} style={{ background: `radial-gradient(circle at 50px 50px, #000,${color}` }}></div>
+            })}</div></div>
+            <button className="reset">RESET GAME</button>
         </div>
+
     )
 }
