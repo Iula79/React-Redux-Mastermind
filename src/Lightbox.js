@@ -3,7 +3,7 @@ import React from 'react';
 export default function Lightbox(props){
     console.log("here")
     return(
-        <div className="modal">
+        <div className="modal rules">
         <div className="close" onClick={props.hideLightbox}>X</div>
         <h2> Mastermind - Rules of the game.</h2>     
               <p> The computer randomly picks a sequence of colors. For example: the secret code is blue, red, yellow, turquoise: </p>
