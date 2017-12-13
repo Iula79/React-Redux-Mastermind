@@ -45,8 +45,7 @@ h1 {
   border:1px solid black;
   
 }
-.instructions {
-  
+.instructions { 
   border:1px solid black;
   margin:20px 40px;
 }
@@ -137,18 +136,18 @@ button {
 
 .modal {
   position: fixed;
-  text-align: center;
-  /* border-radius: 25px; */
-  z-index: 1;
-  padding: 30px;
+  background-color: white;
+  border:2px solid black;
+  overflow: auto;
   left: 25%;
   right:25%;
   top: 15%;
- 
+}
+.rules{
+  text-align: center;
+  padding: 30px;
   height: 60%;
   overflow: auto;
-  background-color: white;
-  border:2px solid black;
 }
 .close {
   position: fixed;
@@ -171,13 +170,13 @@ button {
 }
 .reset {
   padding:10px;
-  margin: 0 20%;
+  margin: 10px 20%;
 }
 .outer {
   display: flex;
   justify-content: center;
 }
-.column {
+.endgame {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

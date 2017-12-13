@@ -11,11 +11,11 @@ export default function Endgame(props) {
     }
     
     return (
-        <div className="modal column">
+        <div className="modal endgame">
             <h2>{content[props.win].description}</h2>
             <p>   HERE IS THE SECRET CODE</p>
-            <div className="outer"><div className="answer"> {props.answer.map((color) => {
-               return <div className="bc" key={color} style={{ background: `radial-gradient(circle at 50px 50px, #000,${color}` }}></div>
+            <div className="outer"><div className="answer"> {props.answer.map((color, i) => {
+               return <div className="bc" key={color + i} style={{ background: `radial-gradient(circle at 50px 50px, #000,${color}` }}></div>
             })}</div></div>
             <button className="reset">RESET GAME</button>
         </div>
