@@ -1,6 +1,6 @@
 import React from 'react';
 import Row from './Row';
-import Endgame from './Endgame';
+
 
 export default function Board(props) {
 

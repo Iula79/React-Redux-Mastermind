@@ -95,7 +95,10 @@ bc:hover {
  border-radius:  10px;
     margin:2px;
 }
-button{
+button {
+  font-family: 'Spectral SC', serif;
+}
+.submit{
   background-color:#9a7439;
   color:white;
   height:50%;
@@ -159,4 +162,23 @@ button{
 }
 #computerCodeExample img{
   max-width: 100%;
+}
+.answer {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background: url('./images/wood.jpg');
+  
+}
+.reset {
+  padding:10px;
+  margin: 0 20%;
+}
+.outer {
+  display: flex;
+  justify-content: center;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

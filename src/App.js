@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
 import Board from './Board';
 import './App.css';
 import Lightbox from './Lightbox';
+import Endgame from './Endgame';
 
 class App extends Component {
 
@@ -12,6 +12,7 @@ class App extends Component {
     this.changeRow = this.changeRow.bind(this)
     this.renderEnd = this.renderEnd.bind(this)
     this.changeColor = this.changeColor.bind(this)
+    this.setWin = this.setWin.bind(this)
 
     let colors = ["#40e0d0",
       "#654321",
@@ -48,21 +49,23 @@ class App extends Component {
     this.setState({ currentRow: this.state.currentRow + 1, guessCount: this.state.guessCount + 1 })
     console.log(this.state.guessCount)
     if (this.state.guessCount === 9) {
-      this.renderEnd(false);
+      this.setWin(false);
     }
   }
 
-  renderEnd(result) {
+  setWin(result) {
     console.log(result)
     this.setState({ won: result })
-    alert(result)
+  }
+  renderEnd(win){
+    return <Endgame win={win} answer={this.state.answer}/>
   }
 
   showLightbox = () => {
     this.setState({ shown: true })
     document.getElementsByTagName('body')[0].className += 'overflow';
   }
-  
+
   hideLightbox = () => {
     this.setState({ shown: false })
     document.getElementsByTagName('body')[0].className = '';
@@ -76,8 +79,11 @@ class App extends Component {
         {this.state.shown &&
           <Lightbox hideLightbox={this.hideLightbox} />
         }
+        {this.state.won ===true || this.state.won===false?
+         this.renderEnd(this.state.won): ''
+        }
         <div className="trial"><div className="test bordertop"></div></div>
-        <Board colors={this.state.colors} currentColor={this.state.currentColor} currentRow={this.state.currentRow} changeRow={this.changeRow} answer={this.state.answer} changeColor={this.changeColor} renderEnd={this.renderEnd} />
+        <Board colors={this.state.colors} currentColor={this.state.currentColor} currentRow={this.state.currentRow} changeRow={this.changeRow} answer={this.state.answer} changeColor={this.changeColor} renderEnd={this.setWin} />
         <div className="trial"><div className="test borderbottom"></div></div>
       </div>
     );

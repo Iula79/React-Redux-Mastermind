@@ -89,7 +89,7 @@ class Row extends Component {
                 
                 {/* react if statement */}
                 {row === currentrow && this.state.count === 4?
-                    <div className="empty"><button onClick={this.submitGuess} >Submit</button></div>
+                    <div className="empty"><button className="submit" onClick={this.submitGuess} >Submit</button></div>
                     :
                     <div className="empty" ></div>
                 }
