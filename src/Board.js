@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Row from './Row'
+import Row from './Row';
+import Endgame from './Endgame';
 
 class Board extends Component {
 
@@ -49,7 +50,6 @@ class Board extends Component {
     renderEnd(result){
         console.log(result)
         this.setState({won:result})
-        alert(`you ${result}`)
     }
 
     render() {

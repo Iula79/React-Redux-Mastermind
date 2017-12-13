@@ -25,6 +25,7 @@ class App extends Component {
         {this.state.shown&&
           <Lightbox  hideLightbox={this.hideLightbox}/>
           }
+         
         <div className="trial"><div className="test bordertop"></div></div>
         <Board />
         <div className="trial"><div className="test borderbottom"></div></div>
