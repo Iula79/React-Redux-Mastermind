@@ -5,9 +5,9 @@ import Row from './Row';
 export default function Board(props) {
 
     let firstChoiceArray = []
-    for (var k = 0; k < 2; k++) {
+    for (let k = 0; k < 2; k++) {
         firstChoiceArray.push(<div className="empty" key={"a" + k}></div>)
-        for (var j = 0; j < 4; j++) {
+        for (let j = 0; j < 4; j++) {
             firstChoiceArray.push(
                 <div className="choiceBoard top" key={props.colors[j + k * 4]}>
                     <div className="bc choice" style={{ background: `radial-gradient(circle at 50px 50px, #000,${props.colors[j + k * 4]})` }} onClick={props.changeColor.bind(this, props.colors[j + k * 4])}>

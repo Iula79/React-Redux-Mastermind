@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Board from './Board';
 import './App.css';
-import Lightbox from './Lightbox';
-import Endgame from './Endgame';
+import ColorList from './containers/colorList';
 
 class App extends Component {
 
@@ -14,25 +12,17 @@ class App extends Component {
     this.changeColor = this.changeColor.bind(this)
     this.setWin = this.setWin.bind(this)
 
-    let colors = ["#40e0d0",
-      "#654321",
-      "#800080",
-      "#ffa500",
-      "#0000ff",
-      "#ff0000",
-      "#008000",
-      "#ffff00"];
     let answer = [];
-    for (var i = 0; i < 4; i++) {
-      var rand = Math.floor(Math.random() * colors.length);
-      answer.push(colors[rand]);
-    }
+    // for (var i = 0; i < 4; i++) {
+    //   var rand = Math.floor(Math.random() * colors.length);
+    //   answer.push(colors[rand]);
+    // }
 
     this.state = {
       currentColor: "#371c0e",
       currentRow: 1,
       answer: answer,
-      colors: colors,
+      // colors: colors,
       guessCount: 0,
       shown: false,
       won: null
@@ -58,7 +48,7 @@ class App extends Component {
     this.setState({ won: result })
   }
   renderEnd(win){
-    return <Endgame win={win} answer={this.state.answer}/>
+    // return <Endgame win={win} answer={this.state.answer}/>
   }
 
   showLightbox = () => {
@@ -74,17 +64,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="heading"><h1>Mastermind Game</h1>
-          <p className="instructions" onClick={this.showLightbox}>How to play</p></div>
-        {this.state.shown &&
-          <Lightbox hideLightbox={this.hideLightbox} />
-        }
-        {this.state.won ===true || this.state.won===false?
-         this.renderEnd(this.state.won): ''
-        }
-        <div className="trial"><div className="test bordertop"></div></div>
+       <ColorList />
+        {/* <div className="trial"><div className="test bordertop"></div></div>
         <Board colors={this.state.colors} currentColor={this.state.currentColor} currentRow={this.state.currentRow} changeRow={this.changeRow} answer={this.state.answer} changeColor={this.changeColor} renderEnd={this.setWin} />
-        <div className="trial"><div className="test borderbottom"></div></div>
+        <div className="trial"><div className="test borderbottom"></div></div> */}
       </div>
     );
   }
