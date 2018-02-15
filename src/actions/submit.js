@@ -1,4 +1,4 @@
-export function submit(row=0, count=0) {
+export function submitRow(row=0, count=0) {
     row ++
     count ++
     return {

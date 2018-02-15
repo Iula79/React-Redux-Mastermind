@@ -22,7 +22,8 @@ export default function (state = defaultState, action) {
             return updateObject(state, { row: action.payload.row});
         case 'CREATE_ANSWER':
             return updateObject(state, {answer: action.payload});
+        default : return state
     }
 
-    return state
+    
 }

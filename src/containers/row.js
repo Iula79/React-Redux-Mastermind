@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import {submitRow} from '../actions/submit';
 
 import Cell from './cell';
 import Peg from './peg';
@@ -19,7 +20,7 @@ class Row extends Component {
                 {cellArray}
                 <div className="choiceBoard"><Peg /></div>
 
-                <div className="empty"><button className="submit" >Submit</button></div>
+                <div className="empty"><button className="submit" onClick={this.props.submitRow.bind(this, 5, 6)} >Submit</button></div>
             </div>
         )
     }
@@ -28,9 +29,13 @@ class Row extends Component {
 
 function mapStateToProps(state) {
     return {
-
-
+        currentRow:state.row,
+        guessCount:state.guessCount
     }
 }
 
-export default Row
+function mapDispatchToProps(dispatch){
+    return bindActionCreators( {submitRow}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Row)
