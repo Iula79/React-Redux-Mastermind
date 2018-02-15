@@ -1,11 +1,17 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {selectColor} from '../actions/index';
-import { bindActionCreators} from 'redux'
+import {bindActionCreators} from 'redux';
+import {createAnswer} from '../actions/answer'
 
 class ColorList extends Component{
-    renderColorList (){
-        
+    
+    componentDidMount(){
+        this.props.createAnswer(this.props.colors)
+    }
+    
+    
+    renderColorList (){    
         let firstChoiceArray= []
         for (let k = 0; k < 2; k++) {
             firstChoiceArray.push(<div className="empty" key={"a" + k}></div>)
@@ -13,7 +19,6 @@ class ColorList extends Component{
                 firstChoiceArray.push(
                     <div className="choiceBoard top" key={this.props.colors[j + k * 4]}>
                         <div className="bc choice" style={{ background: `radial-gradient(circle at 50px 50px, #000,${this.props.colors[j + k * 4]})` }} onClick={this.props.selectColor.bind(this, this.props.colors[j + k * 4])} >
-                        {/* > */}
                         </div>
                     </div>
                 )
@@ -39,7 +44,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators( {selectColor:selectColor}, dispatch)
+    return bindActionCreators( {selectColor, createAnswer}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ColorList)
