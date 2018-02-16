@@ -9,20 +9,12 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.renderEnd = this.renderEnd.bind(this)
-    
-
 
     this.state = {
       shown: false,
-      won: null
+    
 
     }
-  }
-
- 
-  renderEnd(win) {
-    // return <Endgame win={win} answer={this.state.answer}/>
   }
 
   showLightbox = () => {
