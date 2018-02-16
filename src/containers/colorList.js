@@ -8,8 +8,7 @@ class ColorList extends Component{
     
     componentDidMount(){
         this.props.createAnswer(this.props.colors)
-    }
-    
+    }   
     
     renderColorList (){    
         let firstChoiceArray= []
@@ -34,7 +33,6 @@ class ColorList extends Component{
             <div className="grid"> {this.renderColorList()}</div> 
         )
     }
-
 }
 
 function mapStateToProps(state){

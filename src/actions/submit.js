@@ -1,11 +1,6 @@
-export function submitRow(row=0, count=0) {
-    row ++
-    count ++
+export function submitRow() {
+    console.log('fired')
     return {
-        type: 'SUBMIT_ROW',
-        payload: {
-            row,
-            count
-        }
+        type: 'SUBMIT_ROW'
     }
 }
