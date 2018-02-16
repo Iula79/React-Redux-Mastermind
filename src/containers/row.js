@@ -17,7 +17,7 @@ class Row extends Component {
             <div className="row grid">
                 <div className="empty" ></div>
                 {cellArray}
-                <div className="choiceBoard"><Peg /></div>
+                <div className="choiceBoard"><Peg row={this.props.row} /></div>
                 {this.props.render?
                     <div className="empty"><button className="submit" onClick={this.props.submitRow.bind(this)} >Submit</button></div>
                     :
@@ -30,7 +30,7 @@ class Row extends Component {
 
 function mapStateToProps(state,props) {
     var render = (state.game.board.length-1 === props.row)&&(state.game.board.length<10)
-    console.log(render)
+    
     return {
         render
     }
