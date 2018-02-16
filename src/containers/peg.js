@@ -11,7 +11,6 @@ class Peg extends Component {
                 pinArray.push(<div key={i} className="pegpin" style={{ background: col[i] }}></div>)
             } else {
                 pinArray.push(<div key={i} className="pegpin" style={{ background: 'black' }}></div>)
-
             }
             i++
         }

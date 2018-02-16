@@ -29,7 +29,7 @@ class Row extends Component {
 }
 
 function mapStateToProps(state,props) {
-    var render = (state.game.board.length-1 === props.row)&&(state.game.board.length<10)
+    var render = (state.game.board.length-1 === props.row)&&(state.game.board.length<=10)
     
     return {
         render

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import ColorList from './containers/colorList';
 import Board from './components/board';
+import EndGame from './containers/endgame';
+import {connect} from 'react-redux';
+
 
 // console.log state using $r.store.getState();
 class App extends Component {
@@ -32,9 +35,22 @@ class App extends Component {
       <div className="App">
         <ColorList />
         <Board />
+        {(this.props.won||this.props.guesses ===11) &&
+        <EndGame />
+        }
       </div>
     );
   }
 }
+function mapStateToProps(state) {
 
-export default App;
+  return {
+      guesses: state.game.board.length,
+      won:state.game.won
+  }
+}
+
+
+export default connect(mapStateToProps)(App)
+
+

@@ -46,9 +46,11 @@ class Row extends Component {
         }
         this.checkWin(exactCount, nearCount)
     }
+
     updateCount() {
         this.setState({ count: this.state.count + 1 })
     }
+    
     addColor(color, cell) {
         var myguess = this.state.guess.slice()
         myguess[cell] = color
