@@ -1,3 +1,5 @@
+const emptyCell ='#371c0e'
+
 const defaultState = {
     colors:["#40e0d0",
     "#654321",
@@ -9,7 +11,7 @@ const defaultState = {
     "#ffff00"],
     colorSelected: null,
     answer: [],
-    board: [[null, null, null, null]],
+    board: [[emptyCell, emptyCell, emptyCell, emptyCell]],
     pegBoard: [],
     won: false
 }
@@ -23,7 +25,7 @@ function compareGuessToAnswer(guess, answer) {
     let exactCount = 0;
     let nearCount = 0;
    
-    if (!guess.includes(null)) {
+    if (!guess.includes(emptyCell)) {
         for (let i = 0; i < guess.length; i++) {
             if (guess[i] === answer[i]) {
                 exactCount++
@@ -76,13 +78,13 @@ export default function (state = defaultState, action) {
         case 'SUBMIT_ROW':
             let boardCopy = [...state.board];
             let currentRow = boardCopy[boardCopy.length - 1].slice()
-            if (!currentRow.includes(null)) {
+            if (!currentRow.includes(emptyCell)) {
                 let answerCopy = [...state.answer];
                 let pegBoardCopy = [...state.pegBoard];
                 let pegCount = compareGuessToAnswer(currentRow, answerCopy)
                 let pegArray = renderPegs(pegCount);
                 pegBoardCopy.push(pegArray);
-                boardCopy.push([null, null, null, null]);
+                boardCopy.push([emptyCell, emptyCell, emptyCell, emptyCell]);
                 return updateObject(state, { board: boardCopy, pegBoard: pegBoardCopy, won: checkWin(pegCount) });
             }
             return state;
@@ -103,7 +105,7 @@ export default function (state = defaultState, action) {
                 "#008000",
                 "#ffff00"],
                 colorSelected: null,
-                board: [[null, null, null, null]],
+                board: [[emptyCell, emptyCell, emptyCell, emptyCell]],
                 pegBoard: [],
                 won: false
             })
