@@ -33,6 +33,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <button onClick={e=>{e.preventDefault()}}>Instructions</button>
         <ColorList />
         <Board />
         {(this.props.won||this.props.guesses ===11) &&

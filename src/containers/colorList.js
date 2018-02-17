@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {selectColor} from '../actions/index';
 import {bindActionCreators} from 'redux';
-import {createAnswer} from '../actions/answer'
+import {createAnswer} from '../actions/answer';
 
 class ColorList extends Component{
     
@@ -37,7 +37,7 @@ class ColorList extends Component{
 
 function mapStateToProps(state){
     return {
-        colors: state.colors
+        colors: state.game.colors
     }
 }
 

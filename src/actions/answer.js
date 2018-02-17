@@ -1,7 +1,7 @@
 export function createAnswer(arr) {
     let answer = []
     
-    for (var i = 0; i < 4; i++) {
+    for (let i = 0; i < 4; i++) {
         var rand = Math.floor(Math.random() * arr.length);
         answer.push(arr[rand]);
     }

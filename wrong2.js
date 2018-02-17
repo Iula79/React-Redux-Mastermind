@@ -28,7 +28,7 @@ class Board extends Component{
           "#ffff00"],
           createAnswer: function(){
             console.log("this",this);
-            debugger
+            
             for (var i = 0; i < 4; i++){
                 var rand = Math.floor(Math.random() * this.colors.length);
                 this.answer.push(this.colors[rand]);
