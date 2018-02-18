@@ -14,8 +14,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="heading"><h1>Mastermind Game</h1></div>
-        <button className="instructions" onClick={e => { e.preventDefault(); this.props.toggleLightbox() }}>Instructions</button>
+        <div className="heading"><h1>Mastermind Game</h1>        <button className="instructions" onClick={e => { e.preventDefault(); this.props.toggleLightbox() }}>Instructions</button>
+</div>
         <div className="trial"><div className="test bordertop"></div></div>
         <div className="container"><ColorList /></div>
         <Board />
