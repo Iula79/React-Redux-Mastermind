@@ -13,7 +13,6 @@ class Cell extends Component {
 }
 
 function mapStateToProps(state, props){
-    
             
     return {
         cellColor: (state.game.board[props.row]?state.game.board[props.row][props.cell]:'#371c0e')

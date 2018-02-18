@@ -1,4 +1,4 @@
-const emptyCell ='#371c0e'
+const emptyCell='#371c0e';
 
 const defaultState = {
     colors:["#40e0d0",
@@ -66,8 +66,6 @@ function renderPegs(obj) {
 function checkWin(obj) {
     return obj.exactCount === 4
 }
-
-
 
 
 export default function (state = defaultState, action) {

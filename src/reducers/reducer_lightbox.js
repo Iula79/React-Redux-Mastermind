@@ -1,12 +1,10 @@
-function updateObject(oldObject, newValues) {
-    return Object.assign({}, oldObject, newValues);
-}
-
-export default function (state =null,action){
-    switch(action.type){
-        case 'TOGGLE_LIGHTBOX':
-        return updateObject(state,{ lightboxOn:true});
-        default: state;
+export default function (state = false, action) {
+    switch (action.type) {
+        
+        case 'TOGGLE_LIGHTBOX':  
+            let toggled = !state
+            return  toggled;
+        default: return state;
     }
-    
+     
 }
