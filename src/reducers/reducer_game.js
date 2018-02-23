@@ -1,6 +1,6 @@
 const emptyCell='#371c0e';
 
-const defaultState = {
+export const defaultState = {
     colors:["#40e0d0",
     "#654321",
     "#800080",
@@ -68,7 +68,7 @@ function checkWin(obj) {
 }
 
 
-export default function (state = defaultState, action) {
+export function gameReducer(state = defaultState, action) {
 
     switch (action.type) {
         case 'COLOR_SELECTED':

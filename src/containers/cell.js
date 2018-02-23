@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {addColor} from '../actions/cellactions'
+import {addColor} from '../actions/addcolor'
 import {bindActionCreators} from 'redux';
 
 class Cell extends Component {
