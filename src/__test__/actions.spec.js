@@ -1,5 +1,8 @@
 import {createAnswer} from '../actions/answer';
-import {addColor} from '../actions/addcolor'
+import {addColor} from '../actions/addcolor';
+const mockMath = Object.create(global.Math);
+mockMath.random = () => 0.5;
+global.Math = mockMath;
 
 describe('---actions', () => {
     it('should create an action that creates an array of four random colors', ()=>{

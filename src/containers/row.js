@@ -14,14 +14,14 @@ class Row extends Component {
         }
         return cellArray
     }
-    boardRender(board) {
+    renderBoard(board) {
         let rowArray = []
         for (let i = 0; i < board.length; i++) {
             rowArray.push(<div className="row grid" key={i}>
                 <div className="empty" ></div>
                 {this.renderCells(i)}
                 <div className="choiceBoard"><Peg row={i} /></div>
-                {this.props.currentRow == i && !board[i].includes('#371c0e')?
+                {this.props.currentRow === i && !board[i].includes('#371c0e')?
                     <div className="empty"><button className="submit" onClick={this.props.submitRow.bind(this)} >Submit</button></div>
                     :
                     <div className="empty" ></div>
@@ -32,16 +32,10 @@ class Row extends Component {
     }
 
     render() {
-
-        return (
-            
-            this.boardRender(this.props.board)
-            
+        return (    
+            this.renderBoard(this.props.board)  
         )
-
     }
-
-
 }
 
 function mapStateToProps(state) {
