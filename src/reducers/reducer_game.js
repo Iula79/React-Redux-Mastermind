@@ -1,20 +1,4 @@
-const emptyCell='#371c0e';
-
-export const defaultState = {
-    colors:["#40e0d0",
-    "#654321",
-    "#800080",
-    "#ffa500",
-    "#0000ff",
-    "#ff0000",
-    "#008000",
-    "#ffff00"],
-    colorSelected: null,
-    answer: [],
-    board: [[emptyCell, emptyCell, emptyCell, emptyCell]],
-    pegBoard: [],
-    won: false
-}
+import {emptyCell, defaultState} from '../defaultState';
 
 function updateObject(oldObject, newValues) {
     return Object.assign({}, oldObject, newValues);
@@ -24,7 +8,7 @@ function compareGuessToAnswer(guess, answer) {
 
     let exactCount = 0;
     let nearCount = 0;
-   
+
     if (!guess.includes(emptyCell)) {
         for (let i = 0; i < guess.length; i++) {
             if (guess[i] === answer[i]) {
@@ -75,7 +59,7 @@ export function gameReducer(state = defaultState, action) {
             return updateObject(state, { colorSelected: action.payload });
         case 'SUBMIT_ROW':
             let boardCopy = [...state.board];
-            let currentRow = boardCopy[boardCopy.length - 1].slice()
+            let currentRow = boardCopy.length
             if (!currentRow.includes(emptyCell)) {
                 let answerCopy = [...state.answer];
                 let pegBoardCopy = [...state.pegBoard];
@@ -94,14 +78,14 @@ export function gameReducer(state = defaultState, action) {
             return updateObject(state, { board: newBoard });
         case 'RESET_GAME':
             return updateObject(state, {
-                colors:["#40e0d0",
-                "#654321",
-                "#800080",
-                "#ffa500",
-                "#0000ff",
-                "#ff0000",
-                "#008000",
-                "#ffff00"],
+                colors: ["#40e0d0",
+                    "#654321",
+                    "#800080",
+                    "#ffa500",
+                    "#0000ff",
+                    "#ff0000",
+                    "#008000",
+                    "#ffff00"],
                 colorSelected: null,
                 board: [[emptyCell, emptyCell, emptyCell, emptyCell]],
                 pegBoard: [],

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ColorList from './containers/colorList';
-import Board from './components/board';
+import Row from './containers/row';
 import EndGame from './containers/endgame';
 import { connect } from 'react-redux';
 import LightBox from './containers/lightbox';
@@ -18,7 +18,7 @@ class App extends Component {
 </div>
         <div className="trial"><div className="test bordertop"></div></div>
         <div className="container"><ColorList /></div>
-        <Board />
+        <Row />
         <div className="trial"><div className="test borderbottom"></div></div>
         {(this.props.won || this.props.guesses === 11) &&
           <EndGame />
@@ -31,7 +31,6 @@ class App extends Component {
   }
 }
 function mapStateToProps(state) {
-
   return {
     guesses: state.game.board.length,
     won: state.game.won,

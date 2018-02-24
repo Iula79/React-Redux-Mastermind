@@ -21,5 +21,5 @@ describe('---actions', () => {
         }
         expect(addColor(cell)).toEqual(expectedAction)
     })
-
+    
 })
