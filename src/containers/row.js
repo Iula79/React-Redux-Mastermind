@@ -20,8 +20,8 @@ class Row extends Component {
             rowArray.push(<div className="row grid" key={i}>
                 <div className="empty" ></div>
                 {this.renderCells(i)}
-                <div className="choiceBoard"><Peg row={this.props.row} /></div>
-                {this.props.render ?
+                <div className="choiceBoard"><Peg row={i} /></div>
+                {this.props.currentRow == i && !board[i].includes('#371c0e')?
                     <div className="empty"><button className="submit" onClick={this.props.submitRow.bind(this)} >Submit</button></div>
                     :
                     <div className="empty" ></div>
@@ -34,9 +34,9 @@ class Row extends Component {
     render() {
 
         return (
-            <div className="container">
-           { this.boardRender(this.props.board)}
-            </div>
+            
+            this.boardRender(this.props.board)
+            
         )
 
     }
@@ -45,9 +45,9 @@ class Row extends Component {
 }
 
 function mapStateToProps(state) {
-    var board = state.game.board
     return {
-        board
+        board:state.game.board,
+        currentRow: state.game.currentRowIndex
     }
 }
 

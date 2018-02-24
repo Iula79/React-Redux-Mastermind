@@ -17,10 +17,12 @@ class App extends Component {
         <div className="heading"><h1>Mastermind Game</h1>        <button className="instructions" onClick={e => { e.preventDefault(); this.props.toggleLightbox() }}>Instructions</button>
 </div>
         <div className="trial"><div className="test bordertop"></div></div>
-        <div className="container"><ColorList /></div>
+        <div className="container">
+        <ColorList />
         <Row />
+        </div>
         <div className="trial"><div className="test borderbottom"></div></div>
-        {(this.props.won || this.props.guesses === 11) &&
+        {(this.props.won || this.props.guesses === 10) &&
           <EndGame />
         }
         {this.props.on &&
@@ -32,7 +34,7 @@ class App extends Component {
 }
 function mapStateToProps(state) {
   return {
-    guesses: state.game.board.length,
+    guesses: state.currentRowIndex,
     won: state.game.won,
     on: state.lightBoxOn
   }

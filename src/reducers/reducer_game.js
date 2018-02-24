@@ -1,4 +1,4 @@
-import {emptyCell, defaultState} from '../defaultState';
+import { emptyCell, defaultState } from '../defaultState';
 
 function updateObject(oldObject, newValues) {
     return Object.assign({}, oldObject, newValues);
@@ -59,22 +59,20 @@ export function gameReducer(state = defaultState, action) {
             return updateObject(state, { colorSelected: action.payload });
         case 'SUBMIT_ROW':
             let boardCopy = [...state.board];
-            let currentRow = boardCopy.length
-            if (!currentRow.includes(emptyCell)) {
-                let answerCopy = [...state.answer];
-                let pegBoardCopy = [...state.pegBoard];
-                let pegCount = compareGuessToAnswer(currentRow, answerCopy)
-                let pegArray = renderPegs(pegCount);
+            let currentRow = boardCopy[state.currentRowIndex]
+            let currentRowCopy = state.currentRowIndex + 1
+            let answerCopy = [...state.answer];
+            let pegBoardCopy = [...state.pegBoard];
+            let pegCount = compareGuessToAnswer(currentRow, answerCopy);
+            let pegArray = renderPegs(pegCount);
                 pegBoardCopy.push(pegArray);
-                boardCopy.push([emptyCell, emptyCell, emptyCell, emptyCell]);
-                return updateObject(state, { board: boardCopy, pegBoard: pegBoardCopy, won: checkWin(pegCount) });
-            }
-            return state;
+            return updateObject(state, { board: boardCopy, pegBoard: pegBoardCopy, won: checkWin(pegCount), currentRowIndex: currentRowCopy });
+
         case 'CREATE_ANSWER':
             return updateObject(state, { answer: action.payload });
         case 'CELL_SELECTED':
             let newBoard = [...state.board]
-            newBoard[state.board.length - 1][action.payload.cell] = state.colorSelected
+            newBoard[state.currentRowIndex][action.payload.cell] = state.colorSelected
             return updateObject(state, { board: newBoard });
         case 'RESET_GAME':
             return updateObject(state, {

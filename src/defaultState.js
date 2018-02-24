@@ -9,6 +9,7 @@ export const defaultState = {
         "#008000",
         "#ffff00"],
     colorSelected: null,
+    currentRowIndex:0,
     answer: [],
     board: [
         [emptyCell, emptyCell, emptyCell, emptyCell],
